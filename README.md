@@ -21,3 +21,6 @@ pnpm create next-app -- --example with-vitest with-vitest-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+//TODO USE ENV VARIABLE for API_ROUTE
+//TODO Custom landing with links to both documents

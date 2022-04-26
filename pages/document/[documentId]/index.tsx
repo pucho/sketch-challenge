@@ -1,16 +1,20 @@
 import { gql } from "@apollo/client";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import client from "../../apollo-client";
+import client from "@/utils/apollo-client";
 
 type DocumentProps = {
   document: any;
   errors: string;
 };
 
-// TODO Add types for Share from gql schema
+// TODO Add types for Share from gql schema?
+// TODO Main container?
 const Document = (props: DocumentProps) => {
+  const router = useRouter();
   const { document, errors } = props;
 
   if (!errors && !document) return <h1>There was an error</h1>;
@@ -19,14 +23,13 @@ const Document = (props: DocumentProps) => {
     name,
     artboards: { entries },
   } = document;
-  // TODO define artboard component
   return (
     <div>
       <div className="h-16 p-3 flex gap-3 items-center">
         <Image src="/sketch-logo.svg" height={24} width={24} />
         {name}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-x-7 gap-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-x-7 gap-y-4 my-5">
         {entries.map((artboard: any, index: number) => {
           return (
             <div
@@ -38,6 +41,11 @@ const Document = (props: DocumentProps) => {
                 alt={`Image of ${artboard.name}`}
                 className="object-contain flex-grow"
               />
+              <Link
+                href={`/document/${router.query.documentId}/${artboard.shortId}`}
+              >
+                <a>{artboard.name}</a>
+              </Link>
               <span>{artboard.name}</span>
             </div>
           );
@@ -60,8 +68,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
                         name
                         artboards {
                           entries {
-                            name
                             isArtboard
+                            name
+                            shortId
                             files {
                               url
                               height
