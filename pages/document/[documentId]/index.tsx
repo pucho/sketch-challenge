@@ -25,29 +25,33 @@ const Document = (props: DocumentProps) => {
   } = document;
   return (
     <div>
-      <div className="h-16 p-3 flex gap-3 items-center">
-        <Image src="/sketch-logo.svg" height={24} width={24} />
+      <div className="h-16 p-3 flex gap-3 items-center shadow-md mb-[2px]">
+        <Link href="/">
+          <a className="flex items-center cursor-pointer">
+            <Image src="/sketch-logo.svg" height={24} width={24} />
+          </a>
+        </Link>
         {name}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-x-7 gap-y-4 my-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-x-7 gap-y-4 p-5 bg-gray-100 text-gray-500">
         {entries.map((artboard: any, index: number) => {
           return (
-            <div
-              className="flex flex-col text-center gap-3"
-              key={`${name}-${index}`}
+            <Link
+              href={`/document/${router.query.documentId}/${artboard.shortId}`}
             >
-              <img
-                src={artboard.files[0].url}
-                alt={`Image of ${artboard.name}`}
-                className="object-contain flex-grow"
-              />
-              <Link
-                href={`/document/${router.query.documentId}/${artboard.shortId}`}
+              <div
+                className="flex flex-col text-center gap-3 cursor-pointer"
+                key={`${name}-${index}`}
               >
+                <img
+                  src={artboard.files[0].url}
+                  alt={`Image of ${artboard.name}`}
+                  className="object-contain flex-grow"
+                />
+
                 <a>{artboard.name}</a>
-              </Link>
-              <span>{artboard.name}</span>
-            </div>
+              </div>
+            </Link>
           );
         })}
       </div>
