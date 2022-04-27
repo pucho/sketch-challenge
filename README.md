@@ -40,9 +40,11 @@ Manage placeholder for pictures, while the pages are using server side rendering
 after the data gets painted on the browser and it is creating layout shifts after load the first time
 a user visits the page.
 
+Working on accessibility which in the current iteration does not look good.
+
 I would like to investigate more on how to manage the cache with NextJS and GraphQL to minimize hitting
 api if the document hasn't been updated since last load.
 
 I'd think about streamlining the navbar depending on where the user is located instead of having custom bars on each page.
 
-I also need to put more time into accesibilty.
+Would like to add a dynamic landing, where we get the list of documents from the api so the users can select the documents they want to see
