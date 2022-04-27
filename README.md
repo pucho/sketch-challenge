@@ -1,26 +1,19 @@
-# Vitest
+# Sketch Challenge
 
-This example shows how to use [Vitest](https://github.com/vitest-dev/vitest) with Next.js.
+This is a simple viewer for Sketch documents
 
-## Deploy your own
+The latest version of this app is currently deployed [here](https://sketch-challenge.vercel.app/)
 
-Deploy the example using [Vercel](https://vercel.com/) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-vitest)
+## How to run it locally
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-vitest&project-name=with-vitest&repository-name=with-vitest)
+This project uses yarn, run:
+`yarn install` to install dependencies
 
-## How to use
+To start the development environment, you will need to create a .env.local file
+with your root api route `API_ROUTE=<YOURAPIROUTE>`
+After that you can run:
+`yarn dev`
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-vitest with-vitest-app
-# or
-yarn create next-app --example with-vitest with-vitest-app
-# or
-pnpm create next-app -- --example with-vitest with-vitest-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-//TODO USE ENV VARIABLE for API_ROUTE
-//TODO Custom landing with links to both documents
+For running tests run:
+`yarn test`
+You can keep this running on a separate terminal and it will run everytime a test is updated.
