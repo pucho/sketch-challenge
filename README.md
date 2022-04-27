@@ -17,3 +17,32 @@ After that you can run:
 For running tests run:
 `yarn test`
 You can keep this running on a separate terminal and it will run everytime a test is updated.
+(Currently there are no tests)
+
+## Technical Decisions
+
+Decided to go with NextJS particularly for the included router and next/image component that
+provides great functionality out of the box.
+
+For CSS I landed on TailwindCSS, the utility first approach makes it easier to prototype faster for me.
+I don't have to worry about setting up variables and a lot of the styling since I can pull from the already
+excellent classes provided by them.
+
+For testing I decided to try vitest, but the documentation for testing NextJS pages with ssr is slim, and I
+didn't want to spend all my time figuring it out instead of having an actual application. Probably going with
+a simple Cypress setup would have been better for this.
+
+## TODO / UPGRADES
+
+Make the image viewer a component that could be reused in the future depending on our needs.
+
+Manage placeholder for pictures, while the pages are using server side rendering, the images get pulled
+after the data gets painted on the browser and it is creating layout shifts after load the first time
+a user visits the page.
+
+I would like to investigate more on how to manage the cache with NextJS and GraphQL to minimize hitting
+api if the document hasn't been updated since last load.
+
+I'd think about streamlining the navbar depending on where the user is located instead of having custom bars on each page.
+
+I also need to put more time into accesibilty.

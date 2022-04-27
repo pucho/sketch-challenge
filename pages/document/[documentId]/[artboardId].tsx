@@ -31,7 +31,7 @@ const Artboard = (props: ArtboardProps) => {
   const { url, width, height } = artboard.files[currentImage - 1];
   return (
     <div>
-      <div className="h-16 p-3 flex gap-3 items-center text-gray-400">
+      <div className="h-16 p-3 flex gap-3 items-center text-gray-400 shadow-md mb-[2px]">
         <Link href={`/document/${router.query.documentId}`}>
           <a>
             <Image
@@ -45,22 +45,26 @@ const Artboard = (props: ArtboardProps) => {
         <img src="/separator.svg" alt="separator" />
         <img
           src="/arrow-left.svg"
-          alt="separator"
+          alt="previous item"
           onClick={() => {
             if (currentImage !== 0) navigateImages("backwards");
           }}
+          className="cursor-pointer"
         />
         <span>{`${currentImage} / ${artboard.files.length}`}</span>
         <img
           src="/arrow-right.svg"
-          alt="separator"
+          alt="next item"
           onClick={() => {
             if (currentImage < artboard.files.length) navigateImages("forward");
           }}
+          className="cursor-pointer"
         />
-        <span>{artboard.name}</span>
+        <span className="text-gray-700 font-bold absolute w-full text-center -z-10">
+          {artboard.name}
+        </span>
       </div>
-      <div className="max-h-full relative h-[calc(100vh_-_4rem)]">
+      <div className="max-h-full relative h-[calc(100vh_-_4rem_-_1rem)] bg-gray-100 mt-4">
         <Image
           src={url}
           width={width}
