@@ -64,7 +64,7 @@ const Artboard = (props: ArtboardProps) => {
           {artboard.name}
         </span>
       </div>
-      <div className="max-h-full relative h-[calc(100vh_-_4rem_-_1rem)] bg-gray-100 mt-4">
+      <div className="max-h-full relative h-[calc(100vh_-_4rem)] bg-gray-100">
         <Image
           src={url}
           width={width}
