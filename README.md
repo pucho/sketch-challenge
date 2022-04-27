@@ -44,6 +44,7 @@ Working on accessibility which in the current iteration does not look good.
 
 I would like to investigate more on how to manage the cache with NextJS and GraphQL to minimize hitting
 api if the document hasn't been updated since last load.
+Also having generated types from the schema on the frontend would have been great for the dx.
 
 I'd think about streamlining the navbar depending on where the user is located instead of having custom bars on each page.
 
